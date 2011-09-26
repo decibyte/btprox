@@ -20,4 +20,6 @@ known_devices = {
 }
 
 # plugins is the list of plugins to load.
-plugins = []
+plugins = [
+	('plugins.notify.Notifier', [])
+]
