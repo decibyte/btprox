@@ -45,7 +45,8 @@ def scan():
 				print '%s (%s) in range.' % (d, devices_in_range[d],)
 			# Tell plugins about this new device.
 			for p in plugins:
-				p['object'].in_range(d, devices_in_range[d])
+				if d in p['devices']:
+					p['object'].in_range(d, devices_in_range[d])
 		else:
 			print '%s still in range.' % d
 
@@ -67,7 +68,8 @@ def scan():
 					print '%s (%s) no longer in range.' % (d, devices_in_range[d],)
 				# Tell plugins about this missing device.
 				for p in plugins:
-					p['object'].out_of_range(d, devices_in_range[d])
+					if d in p['devices']:
+						p['object'].out_of_range(d, devices_in_range[d])
 			else:
 				print '%s seems to be away, missing for %i of %i scans.' % (d, devices_not_seen[d], config.away_after,)
 		# Device IS in range. Reset the away scan counter.

@@ -15,11 +15,11 @@ away_after = 3
 # easier to reference devices, without having to remember
 # MAC addresses.
 known_devices = {
-	'phone'      : '12:34:56:78:90:AB',
+	'phone'      : '01:23:45:67:89:AB',
 	'laptop'     : 'CD:EF:01:23:45:67',
 }
 
 # plugins is the list of plugins to load.
 plugins = [
-	('plugins.notify.Notifier', [])
+	('plugins.notify.Notifier', [known_devices['phone'], '89:AB:CD:EF:01:23']),
 ]
