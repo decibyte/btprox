@@ -19,7 +19,7 @@ known_devices = {
 	'laptop'     : 'CD:EF:01:23:45:67',
 }
 
-# plugins is the list of plugins to load.
+# plugins is the list of plugins to load. Each element in the list must be a list of 3 elements: The Python path to the plugin class, the options for the plugin and a list of devices the plugin should be notified about.
 plugins = [
-	('plugins.notify.Notifier', [known_devices['phone'], '89:AB:CD:EF:01:23']),
+	('plugins.notify.Notifier', {}, [known_devices['phone'], '89:AB:CD:EF:01:23']),
 ]

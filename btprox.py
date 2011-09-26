@@ -22,10 +22,10 @@ def get_class(kls):
 
 # Load plugins.
 plugins = []
-for (name, devices) in config.plugins:
+for (name, options, devices) in config.plugins:
 	plugins.append({
 		'name'     : name,
-		'object'   : get_class(name)(),
+		'object'   : get_class(name)(options),
 		'devices'  : devices,
 	})
 
